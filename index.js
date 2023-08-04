@@ -2,9 +2,13 @@ const express = require('express');
 const axios = require('axios');
 const cheerio = require('cheerio');
 const querystring = require('querystring');
+const cors = require('cors');
 
 const app = express();
 const baseUrl = 'https://receitas.globo.com';
+
+app.use(express.json());
+app.use(cors());
 
 app.get('/get-recipe-thumbnail', async (req, res) => {
   try {
